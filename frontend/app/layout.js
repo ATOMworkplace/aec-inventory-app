@@ -1,7 +1,7 @@
 import './globals.css';
 import Nav from '@/components/Nav';
 
-export const metadata = { title: 'AtomInv', description: 'Server Inventory System' };
+export const metadata = { title: 'AEC-INV', description: 'Server Inventory System' };
 
 export default function RootLayout({ children }) {
   return (
