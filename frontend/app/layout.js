@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
 
         <Nav />
         
-        <main style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 20px 40px 20px', position: 'relative', zIndex: 10 }}>
+        <main style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 20px 120px 20px', position: 'relative', zIndex: 10 }}>
           {children}
         </main>
       </body>
