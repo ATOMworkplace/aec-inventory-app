@@ -32,15 +32,23 @@ exports.getTxns = async (q, s) => {
 };
 
 exports.addTxn = async (q, s) => {
-    const { itemId, from, to, qty, type } = q.body;
-    await Txn.add(itemId, from, to, qty, type);
-    
-    if (type === 'IN') await Stock.upd(itemId, to, qty);
-    if (type === 'OUT') await Stock.upd(itemId, from, -qty);
-    if (type === 'DAMAGE') await Stock.upd(itemId, from, -qty);
-    if (type === 'MOVE') { 
-        await Stock.upd(itemId, from, -qty); 
-        await Stock.upd(itemId, to, qty); 
+    try {
+        let { itemId, from, to, qty, type } = q.body;
+        if (from === '') from = null;
+        if (to === '') to = null;
+
+        await Txn.add(itemId, from, to, qty, type);
+        
+        if (type === 'IN') await Stock.upd(itemId, to, qty);
+        if (type === 'OUT') await Stock.upd(itemId, from, -qty);
+        if (type === 'DAMAGE') await Stock.upd(itemId, from, -qty);
+        if (type === 'MOVE') { 
+            await Stock.upd(itemId, from, -qty); 
+            await Stock.upd(itemId, to, qty); 
+        }
+        s.json({ ok: true });
+    } catch (e) {
+        console.error("Transaction Error:", e);
+        s.status(500).json({ error: e.message });
     }
-    s.json({ ok: true });
 };

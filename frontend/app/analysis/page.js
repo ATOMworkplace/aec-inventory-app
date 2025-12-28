@@ -300,7 +300,6 @@ export default function Analysis() {
             </div>
           </div>
 
-          {/* Inventory Action Card */}
           <div style={cardStyle}>
             <h3 style={headerStyle}><Layers size={20} color="#8b5cf6"/> Immediate Actions</h3>
             <p style={subHeaderStyle}>Items requiring liquidation or restock</p>
