@@ -2,12 +2,6 @@
 
 A comprehensive, full-stack inventory management solution tailored for Architecture, Engineering, and Construction (AEC) logistics. Designed to handle multi-site warehousing, real-time stock tracking, and predictive financial analysis.
 
-## Live Demo
-
-| Service | Link | Status |
-|---------|------|--------|
-| Frontend Dashboard | https://aec-inventory-app.vercel.app/ | Active |
-
 ---
 
 ## Table of Contents
